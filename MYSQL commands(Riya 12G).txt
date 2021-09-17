@@ -1,0 +1,17 @@
+#MYSQL COMMANDS FOR PROJECT-
+
+create database airsys;
+use airsys;
+
+create table FLIGHTS(FNO varchar(5) primary key,AIRLINES varchar(15), SOURCE varchar(15), DESTINATION varchar(15),FARE int(7), FLIGHT_DATE date,FLIGHT_TIME time);
+insert into FLIGHTS values("AI045","AIR ITALY","BRASILIA","FLORENCE",45000,"2019-06-07",10000);
+insert into FLIGHTS values("EM390","EMIRATES","BRISBANE","DUBAI",65000,"2019-08-07",90000);
+insert into FLIGHTS values("IN990","INDIGO","GOA","MAURITIUS",34000,"2019-09-29",180000);
+insert into FLIGHTS values("LF007","LUFTHANSA","TOKYO","WISCONSIN",70000,"2019-06-07",80000);
+insert into FLIGHTS values("QR555","QATAR","LAS VEGAS","PARIS",89000,"2020-02-14",210000);
+
+
+create table BOOKINGS (BNO varchar (5) primary key , FNO varchar(5) not null ,PASSENGER_NAME varchar(25),GENDER char(1), AGE int(2));
+alter table bookings add constraint  foreign key(FNO) references flights(FNO);
+insert into BOOKINGS values(1000,"AI045","LISA CRUISE","F",24);
+
